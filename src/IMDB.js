@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { fetch } from './mock';
 
 const Genres = [
   'Action',
@@ -83,7 +84,12 @@ function MovieTable() {
   const [movies, setMovies] = useState([null]);
   useEffect(() => loadData(setMovies), []);
 
-  if (movies[0] === null) return <><p>Loading</p></>;
+  if (movies[0] === null)
+    return (
+      <>
+        <p>Loading</p>
+      </>
+    );
   else {
     return (
       <table className="movie-table">
