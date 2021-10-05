@@ -68,13 +68,20 @@ function loadData(setStateCallback) {
         fetch('https://imdb-api.com/en/API/Title/k_h4d6gr2w/' + item.id)
           .then((data) => data.json())
           .then((data) => {
-            result[x].directors = data.directors;
-            result[x].stars = data.stars;
-            result[x].genres = data.genres;
-            result[x].plot = data.plot;
+            setStateCallback((prevMovies) =>
+              prevMovies.map((movie, mIndex) => {
+                if (mIndex !== x) return movie;
+                return {
+                  ...movie,
+                  directors: data.directors,
+                  stars: data.stars,
+                  genres: data.genres,
+                  plot: data.plot,
+                };
+              })
+            );
           });
       });
-      console.log(result);
       setStateCallback(result);
     })
     .catch((err) => console.log("counldn't fetch data...error: " + err));

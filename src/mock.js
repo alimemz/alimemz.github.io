@@ -5,7 +5,7 @@ const dataSource = Array(250)
   .map((id) => [
     id,
     {
-      directors: "Nolan",
+      directors: 'Nolan',
     },
   ]);
 
@@ -13,14 +13,14 @@ const dataSource = Array(250)
 export const fetch = (url) =>
   new Promise((resolve) =>
     setTimeout(() => {
-      if (url.endsWith("k_h4d6gr2w")) {
+      if (url.endsWith('k_h4d6gr2w')) {
         return resolve({
           json: () => ({
             items: dataSource.map(([id, _]) => ({ id })),
           }),
         });
       }
-      const urlParts = url.split("/");
+      const urlParts = url.split('/');
       const requestId = urlParts[urlParts.length - 1];
       const result = dataSource.find(([id, _]) => id === requestId);
       return resolve({
