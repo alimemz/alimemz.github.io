@@ -1,0 +1,130 @@
+import { useEffect, useState } from 'react';
+
+const Genres = [
+  'Action',
+  'Adventure',
+  'Animnation',
+  'Biography',
+  'Comedy',
+  'Crime',
+  'Documentary',
+  'Drama',
+  'Family',
+  'Fantasy',
+  'Film-Noir',
+  'History',
+  'Horror',
+  'Music',
+  'Musical',
+  'Mystery',
+  'Romance',
+  'Sci-Fi',
+  'Short',
+  'Sport',
+  'Thriller',
+  'War',
+  'Western',
+];
+
+function GenreSingle(props) {
+  const [isOn, setIsOn] = useState(true);
+
+  function handleCheck() {
+    setIsOn(!isOn);
+  }
+
+  return (
+    <>
+      <input
+        type="checkbox"
+        id={props.genre}
+        checked={isOn}
+        onChange={handleCheck}
+      ></input>
+      <label htmlFor={props.genre}>{props.genre}</label>
+      <br></br>
+    </>
+  );
+}
+
+function GenreBox() {
+  return (
+    <fieldset className="genre-box">
+      {Genres.map((item) => {
+        return <GenreSingle key={item} genre={item} />;
+      })}
+    </fieldset>
+  );
+}
+
+function loadData(setStateCallback) {
+  let result = [null];
+  fetch('https://imdb-api.com/en/API/Top250Movies/k_h4d6gr2w')
+    .then((data) => data.json())
+    .then((data) => {
+      result = data.items;
+      result.forEach((item, x) => {
+        fetch('https://imdb-api.com/en/API/Title/k_h4d6gr2w/' + item.id)
+          .then((data) => data.json())
+          .then((data) => {
+            result[x].directors = data.directors;
+            result[x].stars = data.stars;
+            result[x].genres = data.genres;
+            result[x].plot = data.plot;
+          });
+      });
+      console.log(result);
+      setStateCallback(result);
+    })
+    .catch((err) => console.log("counldn't fetch data...error: " + err));
+}
+
+function MovieTable() {
+  const [movies, setMovies] = useState([null]);
+  useEffect(() => loadData(setMovies), []);
+
+  if (movies[0] === null) return <><p>Loading</p></>;
+  else {
+    return (
+      <table className="movie-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Title</th>
+            <th>Rate</th>
+            <th>Year</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Stars</th>
+            <th>Plot</th>
+          </tr>
+        </thead>
+        <tbody>
+          {movies.map((item) => {
+            return (
+              <tr key={item.id}>
+                <td>{item.rank}</td>
+                <td>{item.title}</td>
+                <td>{item.imDbRating}</td>
+                <td>{item.year}</td>
+                <td>{item.genres}</td>
+                <td>{item.directors}</td>
+                <td>{item.stars}</td>
+                <td>---</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+}
+
+export default function IMDB() {
+  return (
+    <div className="main-body">
+      <GenreBox></GenreBox>
+      <MovieTable></MovieTable>
+    </div>
+  );
+}

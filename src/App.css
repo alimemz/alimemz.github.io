@@ -1,0 +1,104 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(225, 186, 233);
+}
+
+#root {
+ margin: 0;
+ margin-top: 1px;
+ padding: 0;
+}
+
+.header-container{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(102, 0, 116);
+  border-top: 10px solid rgb(61, 1, 85);
+  width: 100vw;
+  margin: 0 auto;
+  box-shadow: 0 5px 20px black;
+}
+
+.general-header{
+  text-align: center;
+  color: rgb(236, 176, 9);
+  font-family: Ravie, Helvetica, sans-serif;
+  text-shadow: 5px 5px 5px black;
+  margin-bottom: 1em;
+}
+
+nav {
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-end;
+}
+nav ul{
+  display: flex;
+  justify-content: center;
+  margin:0;
+  margin-left: 10px;
+  padding: 0;
+}
+
+nav ul li{
+  text-align: center;
+  margin:1px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgb(61, 1, 85);
+  color: white;
+  font-family: NPIRamin, Helvetica, sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  list-style: none;
+}
+
+nav ul li:hover{
+  background-color: blueviolet;
+  color: rgb(236, 176, 9);
+  font-weight: 900;
+}
+
+/*------------------------------------------------------------------------*/
+.page-name{
+  margin-top: 20px;
+  position: relative;
+}
+.page-name>.page-name-txt{
+  background-color: rgb(102, 0, 116);
+  color:rgb(225, 186, 233);
+  min-width:fit-content;
+  width: 10%;
+  
+  text-align: center;
+  font-family: Ravie, Helvetica, sans-serif;
+  font-size: 20px;
+  border: 5px solid rgb(61, 1, 85);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 5px 5px 30px black;
+  position: relative;
+  left: 10px;
+  z-index: 1;
+}
+.page-name>.page-name-hl{
+  position: absolute;
+  background-color: rgb(61, 1, 85);
+  width: 100vw;
+  height: 10px;
+  top: 25px;
+}
+
+.page-name>.page-name-vl{
+  position: absolute;
+  background-color: rgb(61, 1, 85);
+  width: 10px;
+  height: 100vh;
+  top: 25px;
+  left: 40px;
+}
