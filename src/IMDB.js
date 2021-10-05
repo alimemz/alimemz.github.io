@@ -59,12 +59,10 @@ function GenreBox() {
 }
 
 function loadData(setStateCallback) {
-  let result = [null];
   fetch('https://imdb-api.com/en/API/Top250Movies/k_h4d6gr2w')
     .then((data) => data.json())
     .then((data) => {
-      result = data.items;
-      result.forEach((item, x) => {
+      data.items.forEach((item, x) => {
         fetch('https://imdb-api.com/en/API/Title/k_h4d6gr2w/' + item.id)
           .then((data) => data.json())
           .then((data) => {
@@ -82,7 +80,7 @@ function loadData(setStateCallback) {
             );
           });
       });
-      setStateCallback(result);
+      setStateCallback(data.items);
     })
     .catch((err) => console.log("counldn't fetch data...error: " + err));
 }
