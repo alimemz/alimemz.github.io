@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { fetch } from './mock';
+import { fetchLocal } from './mock';
+import IMDB250 from './imdb250.json';
 
 const Genres = [
   'Action',
@@ -51,6 +52,7 @@ function GenreSingle(props) {
 function GenreBox() {
   return (
     <fieldset className="genre-box">
+      <legend style={{"font-weight": "700"}}>Genres</legend>
       {Genres.map((item) => {
         return <GenreSingle key={item} genre={item} />;
       })}
@@ -59,30 +61,17 @@ function GenreBox() {
 }
 
 function loadData(setStateCallback) {
-  fetch('https://imdb-api.com/en/API/Top250Movies/k_h4d6gr2w')
+  fetchLocal(JSON.stringify(IMDB250))
     .then((data) => data.json())
     .then((data) => {
-      data.items.forEach((item, x) => {
-        fetch('https://imdb-api.com/en/API/Title/k_h4d6gr2w/' + item.id)
-          .then((data) => data.json())
-          .then((data) => {
-            setStateCallback((prevMovies) =>
-              prevMovies.map((movie, mIndex) => {
-                if (mIndex !== x) return movie;
-                return {
-                  ...movie,
-                  directors: data.directors,
-                  stars: data.stars,
-                  genres: data.genres,
-                  plot: data.plot,
-                };
-              })
-            );
-          });
-      });
-      setStateCallback(data.items);
-    })
-    .catch((err) => console.log("counldn't fetch data...error: " + err));
+      setStateCallback(
+        data.items.map((v) => ({
+          ...v,
+          directors: v.crew.split(',').filter((c) => c.includes('dir.'))[0].slice(0,-6).trim(),
+          stars: v.crew.split(',').filter((c)=>!c.includes('dir.')).toString().trim()
+        }))
+      );
+    });
 }
 
 function MovieTable() {
