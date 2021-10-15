@@ -1,9 +1,13 @@
 *{
   box-sizing: border-box;
+  --backBlue: rgb(127, 107, 212);
+  --mainBlue: rgb(0,0,70);
+  --mainRed: rgb(88, 1, 1);
+  --semiRed: rgb(216, 81, 81);
 }
 
 body{
-  background-color: rgb(225, 186, 233);
+  background-color: var(--backBlue);
 }
 
 #root {
@@ -15,8 +19,8 @@ body{
 .header-container{
   display: flex;
   flex-direction: column;
-  background-color: rgb(102, 0, 116);
-  border-top: 10px solid rgb(61, 1, 85);
+  background-color: var(--mainBlue);
+  border-top: 15px solid var(--mainRed);
   width: 100vw;
   margin: 0 auto;
   box-shadow: 0 5px 20px black;
@@ -24,10 +28,12 @@ body{
 
 .general-header{
   text-align: center;
-  color: rgb(236, 176, 9);
-  font-family: Ravie, Helvetica, sans-serif;
+  color: rgb(192, 189, 189);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
   text-shadow: 5px 5px 5px black;
-  margin-bottom: 1em;
+  margin: 5px auto;
+  margin-bottom: 20px;
 }
 
 nav {
@@ -46,22 +52,20 @@ nav ul{
 nav ul li{
   text-align: center;
   margin:1px;
-  padding: 5px;
+  padding: 2px;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: rgb(61, 1, 85);
+  background-color: var(--mainRed);
   color: white;
-  font-family: NPIRamin, Helvetica, sans-serif;
-  font-size: 20px;
-  letter-spacing: 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
   text-decoration: none;
   list-style: none;
 }
 
 nav ul li:hover{
-  background-color: blueviolet;
-  color: rgb(236, 176, 9);
-  font-weight: 900;
+  background-color: rgb(14, 14, 163);
 }
 
 /*------------------------------------------------------------------------*/
@@ -70,25 +74,25 @@ nav ul li:hover{
   position: relative;
 }
 .page-name>.page-name-txt{
-  background-color: rgb(102, 0, 116);
-  color:rgb(225, 186, 233);
+  background-color: var(--mainBlue);
+  color:white;
   min-width:fit-content;
   width: 10%;
   
   text-align: center;
-  font-family: Ravie, Helvetica, sans-serif;
-  font-size: 20px;
-  border: 5px solid rgb(61, 1, 85);
-  border-radius: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  border: 10px solid var(--mainRed);
   padding: 10px;
-  box-shadow: 5px 5px 30px black;
+  /*box-shadow: 5px 5px 30px black;*/
   position: relative;
-  left: 10px;
+  left: 20px;
   z-index: 1;
 }
 .page-name>.page-name-hl{
   position: absolute;
-  background-color: rgb(61, 1, 85);
+  background-color: var(--mainRed);
   width: 100vw;
   height: 10px;
   top: 25px;
@@ -96,9 +100,9 @@ nav ul li:hover{
 
 .page-name>.page-name-vl{
   position: absolute;
-  background-color: rgb(61, 1, 85);
+  background-color: var(--mainRed);
   width: 10px;
-  height: 100vh;
+  height: 100vw;
   top: 25px;
-  left: 40px;
+  left: 175px;
 }

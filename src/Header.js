@@ -14,7 +14,6 @@ export default function Header() {
       <div className="page-name">
         <div className="page-name-txt">IMDB</div>
         <div className="page-name-hl"></div>
-        <div className="page-name-vl"></div>
       </div>
     </>
   );
