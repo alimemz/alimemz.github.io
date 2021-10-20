@@ -4,7 +4,7 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
 }
 /*---------------------------FILTERS SIDEBAR-------------------------------------*/
 .filter-box {
@@ -17,7 +17,8 @@
 }
 
 .filter-by {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   height: 2em;
   background-color: rgb(0, 0, 110);
   color: white;
@@ -28,7 +29,8 @@
 }
 
 .filter-by button {
-  float: right;
+  display: block;
+  justify-content: right;
   font-size: 20px;
   width: 2em;
   height: 2em;
@@ -169,9 +171,11 @@ transform: scale(1.18);
 /*------------------------------------------------------------------*/
 .movie-table {
   border-spacing: 0 15px;
-  margin: 0 auto;
-  margin-top: 20px;
-  flex: 0.85;
+  display: block;
+  flex: 0.9;
+  overflow-x: scroll;
+  margin-left: 2em;
+  margin-right: 2em;
 }
 
 .movie-table tr {
@@ -250,14 +254,18 @@ transform: scale(1.18);
 }
 
 .movie-table a{
+  flex: 0.2;
   display: flex;
   align-items: center;
 }
 
 .movie-table .movie-title{
-  position: relative;
-  left: 4em;
-}
+  display: block;
+  margin-left: 2em;
+  text-align: center;
+  flex: 0.8;
+
+  }
 
 @keyframes appear-table-rows {
   0% {

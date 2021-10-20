@@ -21,7 +21,7 @@ body{
   flex-direction: column;
   background-color: var(--mainBlue);
   border-top: 15px solid var(--mainRed);
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   box-shadow: 0 5px 20px black;
 }
