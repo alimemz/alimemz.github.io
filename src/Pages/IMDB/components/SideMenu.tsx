@@ -4,6 +4,7 @@ import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import { CheckboxValueType } from 'antd/lib/checkbox/Group';
 import { VideoCameraOutlined, SearchOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import genres from '../database/genres';
+import styled from 'styled-components';
 
 type Props = {
   numberOfMovies: number;
@@ -47,11 +48,12 @@ export default function SideMenu({
   return (
     <div
       style={{
-        flexGrow: 0,
         width: collapsed ? 80 : 256,
+        flexGrow: 0,
         height: 'inherit',
         backgroundColor: '#001529',
         paddingTop: '1em',
+        transition: 'width 0.2s',
       }}
       onMouseEnter={() => setCollapsed(false)}
       onMouseLeave={() => setCollapsed(true)}>
@@ -133,9 +135,12 @@ export default function SideMenu({
             />
           </Menu.Item>
         </Menu.SubMenu>
-        {!collapsed?<Menu.Item><p style={{fontSize:'1.1em'}}>{`Now showing: ${numberOfMovies} movies`}</p></Menu.Item>:null}
+        {!collapsed ? (
+          <Menu.Item>
+            <p style={{ fontSize: '1.3em' }}>{`Now showing: ${numberOfMovies} movies`}</p>
+          </Menu.Item>
+        ) : null}
       </Menu>
-      
     </div>
   );
 }

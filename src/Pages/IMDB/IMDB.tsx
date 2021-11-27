@@ -62,6 +62,8 @@ export default function IMDB() {
   //   Render LOADING before data catch
   if (!movie) return <p>Loading...</p>;
   return (
+    <>
+    <Header/>
     <BodyContainer>
       {/* Side menu, containing filter option, etc. */}
       <SideMenu
@@ -91,11 +93,12 @@ export default function IMDB() {
       />
 
       {/* Movies list */}
-      <div style={{ display: 'block', flexGrow: 1 }}>
+      <div style={{ display: 'block', flexGrow: 1,overflowX:'scroll' }}>
         {movie.map((item) => (
           <MovieCard movie={item}></MovieCard>
         ))}
       </div>
     </BodyContainer>
+    </>
   );
 }

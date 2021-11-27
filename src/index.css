@@ -16,3 +16,12 @@ span.ant-checkbox + span{
 font-size: 1.2em;
  color: white;
 }
+
+@font-face {
+  font-family: Base9;
+  src: url(./fonts/Base9SCSmallCaps.otf);
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}

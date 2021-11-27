@@ -21,7 +21,7 @@ export default function MovieCard({ movie }: Props) {
     <Card
       onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 0 20px darkblue')}
       onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 5px black')}>
-      <img width={150} src={movie.image_url} style={{ alignSelf: 'center', flexGrow: 0 }} />
+      <img width={150} src={movie.image_url} style={{ alignSelf: 'center', flexGrow: 0}} />
       <div>
         <CardTitle>
           <div>{`#${movie.rank}  ${movie.title}   [${movie.year}]`}</div>
@@ -69,6 +69,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: row;
   flex-grow: 1;
+  min-width: fit-content;
   margin: 20px;
   gap: 20px;
   height: fit-content;
