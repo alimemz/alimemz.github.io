@@ -25,7 +25,7 @@ export default function MovieCard({ movie }: Props) {
       <div>
         <CardTitle>
           <div>{`#${movie.rank}  ${movie.title}   [${movie.year}]`}</div>
-          <div>
+          <div style={{display:'flex',flexWrap:'wrap'}}>
             {movie.genres.map((item) => (
               <Tag style={{ fontSize: '0.6em', fontWeight: 400, padding: '0.3em' }}>{item}</Tag>
             ))}
@@ -69,7 +69,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: row;
   flex-grow: 1;
-  min-width: fit-content;
+  max-width: 100%;
   margin: 20px;
   gap: 20px;
   height: fit-content;

@@ -1,7 +1,8 @@
 const routes = {
-    ROOT: "/",
-    HOME: "/home",
-    IMDB: "/imdb",
+    'Home': "/home",
+    'IMDB': "/imdb",
+    '360° Maker': "/360maker",
+    'Contact Me': "/contactme",
   };
   
   export default routes;

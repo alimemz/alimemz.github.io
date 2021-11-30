@@ -5,24 +5,19 @@ import "antd/dist/antd.css";
 import reportWebVitals from './reportWebVitals';
 import IMDB from './Pages/IMDB/IMDB'
 import Home from './Pages/Home/Home'
-// import {BrowserRouter, Route , Switch , Redirect} from 'react-router-dom'
+import {BrowserRouter, Route , Routes} from 'react-router-dom'
 import routes from './routes';
 
 
 const App = () => {
   return (
-    // <BrowserRouter>
-    //   <Switch>
-    //     <Route path={routes.ROOT}>
-    //       <Redirect to={routes.HOME} />
-    //     </Route>
-    //     {/* @ts-ignore */}
-    //     <Route path={routes.HOME}  component={Home} />
-    //     {/* @ts-ignore */}
-    //     <Route path={routes.IMDB} component={IMDB} />
-    //   </Switch>
-    // </BrowserRouter>
-    <IMDB/>
+    <BrowserRouter>
+      <Routes>
+        <Route path={routes['Home']}  element={<Home/>} />
+        <Route path={routes['IMDB']} element={<IMDB/>} />
+      </Routes>
+    </BrowserRouter>
+    // <IMDB/>
   );
 };
 

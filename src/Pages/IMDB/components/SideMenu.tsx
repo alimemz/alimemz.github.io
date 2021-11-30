@@ -51,13 +51,15 @@ export default function SideMenu({
         width: collapsed ? 80 : 256,
         flexGrow: 0,
         height: 'inherit',
+        minHeight: '200vh',
         backgroundColor: '#001529',
+        boxShadow:'inset -4px 4px 10px -3px #2d4c69' ,
         paddingTop: '1em',
         transition: 'width 0.2s',
       }}
       onMouseEnter={() => setCollapsed(false)}
       onMouseLeave={() => setCollapsed(true)}>
-      <Menu mode='inline' theme='dark' inlineCollapsed={collapsed} style={{ position: 'sticky', top: 20 }}>
+      <Menu mode='inline' theme='dark' inlineCollapsed={collapsed} style={{ position: 'sticky', top: 20,boxShadow:'inset -10px 0 10px -9px #2d4c69'}}>
         {/* Genre Filtering */}
         <Menu.SubMenu
           key='genre'
@@ -161,3 +163,4 @@ const calcYearSliderMarks = (yearRange: [number, number]) => ({
   },
   [yearRange[1]]: { label: yearRange[1].toString(), style: { color: 'white' } },
 });
+

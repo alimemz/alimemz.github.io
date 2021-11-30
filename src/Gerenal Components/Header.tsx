@@ -1,10 +1,13 @@
-import styled, { keyframes } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import myPhoto from './myPhoto.png';
-import { useState } from 'react';
 import WhatIKnow from './WhatIKnow';
+import { useNavigate } from 'react-router';
+import routes from '../routes';
+import { useLocation } from 'react-router';
 
 export default function Header() {
-  const [thisPage, setThisPage] = useState('Home');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <Parent>
@@ -15,12 +18,18 @@ export default function Header() {
         </div>
         <h2>Skill Presentation Website</h2>
       </Title>
-      <WhatIKnow/>
+      <WhatIKnow />
       <Nav>
-        <button>Home</button>
-        <button>IMDB</button>
-        <button>360° Maker</button>
-        <button>Contact Me</button>
+        {Object.entries(routes).map((item) => {
+          console.log(item);
+          return (
+            <NavBtn
+              active={item[1].substring(1) === location.pathname.split('/').reverse()[0].toLowerCase()}
+              onClick={() => navigate(item[1])}>
+              {item[0]}
+            </NavBtn>
+          );
+        })}
       </Nav>
     </Parent>
   );
@@ -34,6 +43,7 @@ const Parent = styled.div`
   width: 100vw;
   min-height: 130px;
   height: fit-content;
+  padding-bottom: 20px;
   box-sizing: border-box;
   margin: 0;
   background-color: #000c17;
@@ -86,23 +96,23 @@ const Nav = styled.div`
   display: flex;
   flex-direction: row;
   width: fit-content;
+  margin-right: 10px;
   align-self: flex-end;
   align-items: flex-end;
-
-  & button {
-    background-color: #01203d;
-    border: none;
-    color: white;
-    font-weight: 500;
-    margin-left: 0.42vmax;
-    height: 45px;
-    font-size: 20px;
-    transition: background-color 0.2s, height 0.2s;
-
-    &:hover {
-      background-color: #03396d;
-      height: 3.13vmax;
-    }
-  }
 `;
 
+const NavBtn = styled.button`
+  background-color: ${(props: { active: boolean }) => (props.active ? '#03396d' : '#01203d')};
+  border: none;
+  color: white;
+  font-weight: 500;
+  margin-left: 0.42vmax;
+  height: ${(props: { active: boolean }) => (props.active ? '52px' : '45px')};
+  font-size: 20px;
+  transition: background-color 0.2s, height 0.2s;
+
+  &:hover {
+    background-color: #03396d;
+    height: 60px;
+  }
+`;
