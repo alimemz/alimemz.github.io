@@ -21,7 +21,6 @@ export default function Header() {
       <WhatIKnow />
       <Nav>
         {Object.entries(routes).map((item) => {
-          console.log(item);
           return (
             <NavBtn
               active={item[1].substring(1) === location.pathname.split('/').reverse()[0].toLowerCase()}
