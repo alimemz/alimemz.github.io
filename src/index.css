@@ -1,20 +1,18 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-span.ant-checkbox + span{
-font-size: 1.2em;
- color: white;
+span.ant-checkbox + span {
+  font-size: 1.2em;
+  color: white;
 }
 
 @font-face {
@@ -22,6 +20,11 @@ font-size: 1.2em;
   src: url(./fonts/Base9SCSmallCaps.otf);
 }
 
-body::-webkit-scrollbar{
+@font-face {
+  font-family: MonotypeCorsiva;
+  src: url(./fonts/MTCORSVA.TTF);
+}
+
+body::-webkit-scrollbar {
   display: none;
 }

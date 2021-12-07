@@ -19,19 +19,22 @@ export default function TimeLineItem(props: Props) {
   );
 }
 
+const circleColor = '#992603';
+const bgColor = '#03396d';
+
 const AnimMovingCircle = keyframes`
     1% {opacity:1;top:0;}
     99% {opacity:1;top:100%;}
 `;
 
 const AnimStaticCircleAppear = keyframes`
-    from {background-color:#03396d;}
-    to {background-color:white;}
+    from {background-color:${bgColor};}
+    to {background-color:${circleColor};}
 `;
 
 const AnimStaticCircleDisappear = keyframes`
-    1% {background-color:white;}
-    100% {background-color:#03396d;}
+    1% {background-color:${circleColor};}
+    100% {background-color:${bgColor};}
 `;
 
 type ItemProps = { passed: boolean };
@@ -54,16 +57,16 @@ const Item = styled.div`
   &::before,
   ::after {
     position: absolute;
-    left: -0.9em;
+    left: -1em;
     content: '';
-    border: 2px solid white;
     border-radius: 50%;
-    width: 1.6em;
-    height: 1.6em;
+    width: 1.8em;
+    height: 1.8em;
   }
   &::before {
     top: 0;
-    background-color: #03396d;
+    border: 3px solid white;
+    background-color: ${bgColor};
     /*                •current                  •past                     */
     animation-name: ${AnimStaticCircleAppear}, ${AnimStaticCircleDisappear};
     animation-duration: 1ms, 1ms;
@@ -73,7 +76,7 @@ const Item = styled.div`
     animation-play-state: running, ${(props: ItemProps) => (props.passed ? 'running' : 'paused')};
   }
   &::after {
-    background-color: white;
+    background-color: ${circleColor};
     z-index: 2;
     opacity: 0;
     animation: ${AnimMovingCircle} 0.5s linear normal forwards;
