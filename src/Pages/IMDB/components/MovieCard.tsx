@@ -21,13 +21,15 @@ export default function MovieCard({ movie }: Props) {
     <Card
       onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 0 20px darkblue')}
       onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 5px black')}>
-      <img width={150} src={movie.image_url} style={{ alignSelf: 'center', flexGrow: 0}} />
+      <img width={150} src={movie.image_url} style={{ alignSelf: 'center', flexGrow: 0 }} alt={movie.title} />
       <div>
         <CardTitle>
           <div>{`#${movie.rank}  ${movie.title}   [${movie.year}]`}</div>
-          <div style={{display:'flex',flexWrap:'wrap'}}>
+          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             {movie.genres.map((item) => (
-              <Tag style={{ fontSize: '0.6em', fontWeight: 400, padding: '0.3em' }}>{item}</Tag>
+              <Tag key={'genre ' + item} style={{ fontSize: '0.6em', fontWeight: 400, padding: '0.3em' }}>
+                {item}
+              </Tag>
             ))}
           </div>
         </CardTitle>

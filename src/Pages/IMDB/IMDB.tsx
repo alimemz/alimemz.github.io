@@ -39,7 +39,7 @@ export default function IMDB() {
         allMovies.current?.map((item) => item.year)
       ),
     ];
-  }, [allMovies.current]);
+  }, []);
 
   //   Render LOADING before data catch
   if (!movie)
@@ -94,7 +94,7 @@ export default function IMDB() {
         <MovieContainer>
           <div>
             {movie.map((item) => (
-              <MovieCard movie={item}></MovieCard>
+              <MovieCard key={'card ' + item.title} movie={item}></MovieCard>
             ))}
           </div>
         </MovieContainer>

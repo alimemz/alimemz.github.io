@@ -10,27 +10,31 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <Parent>
-      <Title>
-        <div>
-          <img src={myPhoto} />
-          <h1>Ali Memarzadeh</h1>
-        </div>
-        <h2>Skill Presentation Website</h2>
-      </Title>
+    <div style={{ width: '100%' }}>
       <WhatIKnow />
-      <Nav>
-        {Object.entries(routes).map((item) => {
-          return (
-            <NavBtn
-              active={item[1].substring(1) === location.pathname.split('/').reverse()[0].toLowerCase()}
-              onClick={() => navigate(item[1])}>
-              {item[0]}
-            </NavBtn>
-          );
-        })}
-      </Nav>
-    </Parent>
+      <Parent>
+        <Title>
+          <div>
+            <img src={myPhoto} alt='author' />
+            <h1>Ali Memarzadeh</h1>
+          </div>
+          <h2>Skill Presentation Website</h2>
+        </Title>
+
+        <Nav>
+          {Object.entries(routes).map((item) => {
+            return (
+              <NavBtn
+                key={item[0]}
+                active={item[1].substring(1) === location.pathname.split('/').reverse()[0].toLowerCase()}
+                onClick={() => navigate(item[1])}>
+                {item[0]}
+              </NavBtn>
+            );
+          })}
+        </Nav>
+      </Parent>
+    </div>
   );
 }
 
@@ -58,7 +62,7 @@ const Title = styled.div`
     flex-direction: row;
 
     & img {
-      border-bottom-right-radius: 30%;
+      border-radius: 50%;
       width: 90px;
       height: 90px;
       flex-grow: 0;

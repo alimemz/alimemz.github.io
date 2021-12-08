@@ -1,20 +1,18 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
 type Props = {
   content: JSX.Element;
   title: string;
 };
-export default function (props: Props) {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-
+export default function Collapsible(props: Props) {
   const contentEl = useRef<HTMLDivElement>(null);
 
   function clickJob() {
-    setIsCollapsed((prev) => {
-      if (contentEl.current) contentEl.current.style.maxHeight = prev ? '2000px' : `0px`;
-      return !prev;
-    });
+    if (contentEl.current) {
+      const maxHeight = Number.parseInt(contentEl.current.style.maxHeight.replace('px', ''));
+      contentEl.current.style.maxHeight = maxHeight > 0 ? '0px' : '2000px';
+    }
   }
 
   return (

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import TimeLineItem from './TimeLineItem';
 import { biography as data } from '../database/biography';
@@ -23,12 +23,12 @@ export default function Biography() {
     <Container
       isLast={level === data.length - 1}
       style={{ height: imageHeight ? imageHeight : 'fit-content' }}>
-      <img src={myphoto} ref={image} />
+      <img src={myphoto} ref={image} alt='ali memarzadeh' />
       <div id='bio-items-container'>
         {data
           .filter((_, j) => j <= level)
           .map((paragraph, i) => (
-            <TimeLineItem passed={i < level} text={paragraph} />
+            <TimeLineItem key={'bio-' + i} passed={i < level} text={paragraph} />
           ))}
         <p id='continue' onClick={(_) => setLevel((prev) => (prev < data.length - 1 ? prev + 1 : prev))}>
           Continue...
