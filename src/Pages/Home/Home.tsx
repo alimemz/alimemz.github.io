@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 import routes from '../../routes';
 import Biography from './components/Biography';
-import ScoreGraph from './components/ScoreGraph';
 import Collapsible from './components/Collapsible';
+import Skills from './components/Skills';
+import styled from 'styled-components';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -14,32 +15,36 @@ export default function Home() {
   }, [navigate]);
 
   return (
-    <>
+    <div style={{ width: '100%' }}>
       <Header />
-      <div
-        style={{
-          width: '100%',
-          height: 'fit-content',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          marginTop: 50,
-        }}>
-        <div style={{ height: 200, width: 200, flexShrink: 0 }}>
-          <ScoreGraph
-            backgroundColor='#ffffff'
-            segmentsColor='#094120'
-            segments={10}
-            sThickness={40}
-            dThickness={10}
-            borderColor='#242323'
-            loadTime={1500}
-            score={7}
-          />
-        </div>
-      </div>
-
-      <Collapsible content={<Biography />} title='Short Biography'></Collapsible>
-    </>
+      <Body>
+        <Collapsible content={<Biography />} title='Short Biography'></Collapsible>
+        <Collapsible content={<Skills />} title='Skills'></Collapsible>
+      </Body>
+    </div>
   );
+}
+
+const Body = styled.div`
+  width: 100%;
+  margin: 0 auto;
+  background-color: #c4cfe0;
+`;
+{
+  /* <p>I have always believed in one thing during my life:</p>
+<p>
+  A good job, occupation or activity is the one that makes you be happy at the last hours of weekend
+  and look forward to get back to it.
+</p>
+<p>
+  As long as memory helps, I have always been seeking such an occupation...and finally I found it
+  rightfully in "Programming" and "Software Development".
+</p>
+<p>
+  This website is created merely to present my development skills to whom it may concern. Also I
+  intend to maintain,update or add something to it, anytime I learn something new.{' '}
+</p>
+<p>
+  Below you can find a short biography of me along with a self assessment of my development skills.
+</p> */
 }

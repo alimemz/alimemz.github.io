@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components/macro';
-import parchement from './parchement.png';
-import rope_handle from './rope-handle.png';
+import parchement from './database/parchement.png';
+import rope_handle from './database/rope-handle.png';
 
 export default function WhatIsUsed() {
   const [left, setLeft] = useState(window.innerWidth / 2 - 320);

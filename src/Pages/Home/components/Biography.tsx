@@ -11,6 +11,7 @@ export default function Biography() {
   const image = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    if (image.current) setImageHeight(image.current.getBoundingClientRect().width * 1.5);
     window.onresize = () => {
       if (image.current) setImageHeight(image.current.getBoundingClientRect().width * 1.5);
     };
@@ -58,9 +59,8 @@ const Container = styled.div`
 
   & #bio-items-container {
     padding: 20px 20px;
-    padding-left: 0;
+    padding-left: 13px;
     overflow-y: auto;
-    z-index: 1;
   }
 
   & #continue {

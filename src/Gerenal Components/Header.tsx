@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro';
-import myPhoto from './myPhoto.png';
-import WhatIKnow from './WhatIKnow';
+import myPhoto from './database/myPhoto.png';
+import WhatIsUsed from './WhatIsUsed';
 import { useNavigate } from 'react-router';
 import routes from '../routes';
 import { useLocation } from 'react-router';
@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <div style={{ width: '100%' }}>
-      <WhatIKnow />
+      {/* <WhatIsUsed /> */}
       <Parent>
         <Title>
           <div>
@@ -40,20 +40,24 @@ export default function Header() {
 
 const Parent = styled.div`
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 130px;
   height: fit-content;
   padding-bottom: 20px;
   box-sizing: border-box;
   margin: 0;
   background-color: #000c17;
+  @media (max-width: 970px) {
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.div`
   width: fit-content;
+  margin-left: 10px;
+  margin-top: 10px;
   align-self: flex-start;
 
   & > div {
@@ -65,12 +69,16 @@ const Title = styled.div`
       border-radius: 50%;
       width: 90px;
       height: 90px;
-      flex-grow: 0;
       display: inline;
       background-color: #ecebeb;
+      @media (max-width: 450px) {
+        width: 20vw;
+        height: 20vw;
+      }
     }
     & h1 {
       font-family: Base9;
+      width: 100%;
       margin: 0;
       padding: 0;
       display: inline;
@@ -80,6 +88,10 @@ const Title = styled.div`
       font-size: 52px;
       transform: scaleY(1.3) translateY(20px);
       color: #ecebeb;
+      @media (max-width: 450px) {
+        font-size: 8vw;
+        transform: translateY(30px);
+      }
     }
   }
 
@@ -92,6 +104,11 @@ const Title = styled.div`
     padding: 0;
     margin: 0;
     color: #ecebeb;
+    @media (max-width: 450px) {
+      font-size: 5.3vw;
+      letter-spacing: 1px;
+      transform: translateY(-10px);
+    }
   }
 `;
 
@@ -102,6 +119,9 @@ const Nav = styled.div`
   margin-right: 10px;
   align-self: flex-end;
   align-items: flex-end;
+  @media (max-width: 975px) {
+    margin: 0 auto;
+  }
 `;
 
 const NavBtn = styled.button`
@@ -113,6 +133,9 @@ const NavBtn = styled.button`
   height: ${(props: { active: boolean }) => (props.active ? '52px' : '45px')};
   font-size: 20px;
   transition: background-color 0.2s, height 0.2s;
+  @media (max-width: 625px) {
+    font-size: 15px;
+  }
 
   &:hover {
     background-color: #03396d;

@@ -19,7 +19,7 @@ export default function TimeLineItem(props: Props) {
   );
 }
 
-const circleColor = '#992603';
+const circleColor = '#d7df71';
 const bgColor = '#03396d';
 
 const AnimMovingCircle = keyframes`
@@ -43,6 +43,9 @@ const Item = styled.div`
   background-color: inherit;
   margin-left: ${(props: ItemProps) => (props.passed ? '0px' : '3px')};
   border-left: ${(props: ItemProps) => (props.passed ? '3px solid white' : 'none')};
+  @media (max-width: 450px) {
+    border-left: ${(props: ItemProps) => (props.passed ? '2px solid white' : 'none')};
+  }
 
   & p {
     font-size: 20px;
@@ -52,16 +55,25 @@ const Item = styled.div`
     margin: 0;
     padding-left: 20px;
     padding-bottom: 20px;
+    @media (max-width: 450px) {
+      font-size: 10px;
+      padding-left: 12px;
+    }
   }
 
   &::before,
   ::after {
     position: absolute;
-    left: -1em;
+    left: -15px;
     content: '';
     border-radius: 50%;
-    width: 1.8em;
-    height: 1.8em;
+    width: 30px;
+    height: 30px;
+    @media (max-width: 450px) {
+      width: 15px;
+      height: 15px;
+      left: -9px;
+    }
   }
   &::before {
     top: 0;
@@ -74,6 +86,9 @@ const Item = styled.div`
     animation-direction: normal, normal;
     animation-fill-mode: forwards, forwards;
     animation-play-state: running, ${(props: ItemProps) => (props.passed ? 'running' : 'paused')};
+    @media (max-width: 450px) {
+      border-width: 2px;
+    }
   }
   &::after {
     background-color: ${circleColor};
