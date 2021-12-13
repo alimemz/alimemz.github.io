@@ -1,15 +1,14 @@
 import styled, { keyframes } from 'styled-components';
 
 /** A cute and fastinating loading animation */
-export default function Loading({widthInPixel}:{widthInPixel:number}) {
-  
+export default function Loading({ widthInPixel }: { widthInPixel: number }) {
   return (
     <Wrapper width={widthInPixel}>
       <div>
-        <Segment thickness={widthInPixel/10} color='#c1e64a' duration={1.5} />
-        <Segment thickness={widthInPixel/10} color='#66ec5a' duration={2} />
-        <Segment thickness={widthInPixel/10} color='#ec6b5a' duration={2.5} />
-        <Segment thickness={widthInPixel/10} color='#5a70ec' duration={3} />
+        <Segment thickness={widthInPixel / 10} color='#c1e64a' duration={1.5} />
+        <Segment thickness={widthInPixel / 10} color='#66ec5a' duration={2} />
+        <Segment thickness={widthInPixel / 10} color='#ec6b5a' duration={2.5} />
+        <Segment thickness={widthInPixel / 10} color='#5a70ec' duration={3} />
       </div>
       <span>Loading data...</span>
     </Wrapper>
@@ -24,14 +23,14 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   margin: 50px;
-  &>div{
+  & > div {
     position: relative;
-    width: ${(props:{width:number})=>props.width}px;
-    height: ${(props:{width:number})=>props.width}px;
+    width: ${(props: { width: number }) => props.width}px;
+    height: ${(props: { width: number }) => props.width}px;
   }
   & span {
     width: fit-content;
-    font-size: 40px;
+    font-size: 3vmax;
   }
 `;
 
@@ -40,7 +39,7 @@ const spinAnimation = keyframes`
   100% {transform: rotate(360deg);}
 `;
 
-type SegmentProps = { thickness:number,color: string; duration: number };
+type SegmentProps = { thickness: number; color: string; duration: number };
 const Segment = styled.div`
   position: absolute;
   border-radius: 50%;
@@ -48,7 +47,6 @@ const Segment = styled.div`
   height: 100%;
   border: ${(props: SegmentProps) => props.thickness}px solid transparent;
   mix-blend-mode: multiply;
-  border-right: ${(props: SegmentProps) => props.thickness}px  solid ${(props: SegmentProps) => props.color};
+  border-right: ${(props: SegmentProps) => props.thickness}px solid ${(props: SegmentProps) => props.color};
   animation: ${spinAnimation} ${(props: SegmentProps) => props.duration}s ease-in-out infinite;
 `;
-

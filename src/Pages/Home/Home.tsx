@@ -46,7 +46,7 @@ export default function Home() {
         </Intro>
         <Collapsible content={<Skills />} title='Skills Self Assessment' initialState={true}></Collapsible>
 
-        <Collapsible content={<Biography />} title='A Short Biography' initialState={false}></Collapsible>
+        <Collapsible content={<Biography />} title='A Short Biography' initialState={true}></Collapsible>
       </Body>
     </div>
   );
@@ -57,7 +57,7 @@ const Body = styled.div`
   margin: 0 auto;
   padding-bottom: 20px;
   background-color: #c4cfe0;
-  border-left: 2.5vw solid #01203d;
+  border-left: 2.5vw solid #001529;
 `;
 
 const Intro = styled.div`

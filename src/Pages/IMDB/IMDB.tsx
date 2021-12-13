@@ -39,7 +39,7 @@ export default function IMDB() {
         allMovies.current?.map((item) => item.year)
       ),
     ];
-  }, []);
+  }, [allMovies.current]);
 
   //   Render LOADING before data catch
   if (!movie)
@@ -54,7 +54,7 @@ export default function IMDB() {
             yearRange={[1900, 2020]}
             numberOfMovies={0}
           />
-          <Loading widthInPixel={300} />
+          <Loading widthInPixel={window.innerWidth > 500 ? 300 : 150} />
         </BodyContainer>
       </>
     );
@@ -68,7 +68,7 @@ export default function IMDB() {
           filterByGenre={(genreList) => {
             setMovie(
               allMovies.current.filter((item) =>
-                item.genres.some((genre) => genreList.includes(genre.toString()))
+                item.genres.every((genre) => genreList.includes(genre.toString()))
               )
             );
           }}
@@ -128,12 +128,14 @@ async function loadData() {
 }
 
 const MovieContainer = styled.div`
-  display: 'block';
+  display: flex;
+  width: 100%;
   flex-grow: 1;
   overflow-x: auto;
   margin-top: 5px;
   transform: rotateX(180deg);
   & > div {
+    width: 100%;
     transform: rotateX(-180deg);
     min-width: fit-content;
   }

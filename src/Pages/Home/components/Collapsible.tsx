@@ -33,7 +33,7 @@ const Container = styled.div`
     left: -5px;
     width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '30' : '100')}%;
     min-width: fit-content;
-    background-color: #01203d;
+    background-color: #001529;
     text-align: center;
     cursor: pointer;
     text-shadow: 0px 5px 5px #000000;

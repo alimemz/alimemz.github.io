@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
 import myPhoto from './database/myPhoto.png';
-import WhatIsUsed from './WhatIsUsed';
 import { useNavigate } from 'react-router';
 import routes from '../routes';
 import { useLocation } from 'react-router';

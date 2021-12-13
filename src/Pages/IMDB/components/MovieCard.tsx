@@ -1,5 +1,5 @@
 import { ReadOutlined } from '@ant-design/icons';
-import { Button, Divider, Popover, Tag } from 'antd';
+import { Divider, Popover, Tag } from 'antd';
 import styled from 'styled-components';
 
 export type Movie = {
@@ -13,27 +13,22 @@ export type Movie = {
   story: string | undefined;
 };
 
-type Props = {
-  movie: Movie;
-};
-export default function MovieCard({ movie }: Props) {
+export default function MovieCard({ movie }: { movie: Movie }) {
   return (
-    <Card
-      onMouseOver={(e) => (e.currentTarget.style.boxShadow = '0 0 20px darkblue')}
-      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 5px black')}>
-      <img width={150} src={movie.image_url} style={{ alignSelf: 'center', flexGrow: 0 }} alt={movie.title} />
-      <div>
+    <Card>
+      <img src={movie.image_url} alt={movie.title} />
+      <CardContent>
         <CardTitle>
-          <div>{`#${movie.rank}  ${movie.title}   [${movie.year}]`}</div>
-          <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <span className='title'>{`#${movie.rank}  ${movie.title}   [${movie.year}]`}</span>
+          <div className='tags'>
             {movie.genres.map((item) => (
-              <Tag key={'genre ' + item} style={{ fontSize: '0.6em', fontWeight: 400, padding: '0.3em' }}>
-                {item}
-              </Tag>
+              <Tag key={'genre ' + item}>{item}</Tag>
             ))}
           </div>
         </CardTitle>
-        <Divider style={{ marginTop: 10, marginBottom: 10 }} />
+
+        <Divider />
+
         <CardBody>
           <div>
             <p>Directed by:</p>
@@ -44,22 +39,19 @@ export default function MovieCard({ movie }: Props) {
             <p>{movie.stars}</p>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Popover
-              content={<p style={{ maxWidth: 300, fontSize: '1.5em', color: 'white' }}>{movie.story}</p>}
+              content={<p style={{ maxWidth: '25vw', fontSize: '1vmax', color: 'white' }}>{movie.story}</p>}
               placement='left'
               color='#181717df'>
-              <Button
-                shape='round'
-                size='large'
-                icon={<ReadOutlined />}
-                style={{ fontSize: '1.5em', padding: '0 20px' }}>
+              <button>
+                <ReadOutlined style={{ marginRight: 5 }} />
                 Read Story
-              </Button>
+              </button>
             </Popover>
           </div>
         </CardBody>
-      </div>
+      </CardContent>
     </Card>
   );
 }
@@ -77,27 +69,65 @@ const Card = styled.div`
   height: fit-content;
   padding: 20px;
   transition: box-shadow 0.5s;
+  &:hover {
+    box-shadow: 0 0 20px darkblue;
+  }
+  @media (max-width: 450px) {
+    padding: 5px;
+    flex-direction: row-reverse;
+  }
 
-  & > div {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  & img {
+    width: 150px;
+    align-self: center;
+    flex-grow: 0;
+    @media (max-width: 450px) {
+      width: 100px;
+    }
   }
 `;
+
+const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  & .ant-divider {
+    margin: 10px 0;
+  }
+`;
+
 const CardTitle = styled.div`
-  font-size: 2em;
+  font-size: 25px;
   font-weight: 900;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  & div {
+  @media (max-width: 450px) {
+    font-size: 13px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  & div.tags {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    & span.ant-tag {
+      font-size: 18px;
+      font-weight: 400;
+      padding: 0.3em;
+      @media (max-width: 450px) {
+        font-size: 10px;
+      }
+    }
   }
 `;
+
 const CardBody = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
   position: relative;
   padding-left: 210;
   justify-content: space-around;
@@ -105,11 +135,27 @@ const CardBody = styled.div`
     flex-grow: 1;
   }
   & p {
-    font-size: 1.4em;
+    font-size: 20px;
     font-weight: 700;
+    @media (max-width: 450px) {
+      font-size: 11px;
+    }
   }
   & p:first-child {
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: 400;
+    @media (max-width: 450px) {
+      font-size: 8px;
+    }
+  }
+
+  & button {
+    font-size: 20px;
+    border-radius: 30px;
+    color: black;
+    padding: 5px 10px;
+    @media (max-width: 450px) {
+      font-size: 12px;
+    }
   }
 `;
