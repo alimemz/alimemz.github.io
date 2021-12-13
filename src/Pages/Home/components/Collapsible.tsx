@@ -3,18 +3,19 @@ import styled from 'styled-components';
 
 type Props = {
   content: JSX.Element;
+  /**Initial collapsed state */
+  initialState: boolean;
   title: string;
 };
 export default function Collapsible(props: Props) {
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(props.initialState);
 
   return (
     <Container isCollapsed={isCollapsed}>
-      <div className='top-element' onClick={() => setIsCollapsed((prev) => !prev)}>
+      <div className='header-element' onClick={() => setIsCollapsed((prev) => !prev)}>
         {props.title}
       </div>
       <div className='content-element'>{!isCollapsed && props.content}</div>
-      <div className='bottom-element' onClick={() => setIsCollapsed((prev) => !prev)}></div>
     </Container>
   );
 }
@@ -24,34 +25,30 @@ const Container = styled.div`
   flex-direction: column;
   margin: 0 auto;
   margin-top: 20px;
-  margin-bottom: 20px;
   width: 100%;
   height: fit-content;
 
-  & > div.top-element,
-  .bottom-element {
-    width: 100%;
-    height: 80px;
+  & > div.header-element {
+    position: relative;
+    left: -5px;
+    width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '30' : '100')}%;
+    min-width: fit-content;
     background-color: #01203d;
-    box-shadow: inset 0 0 10px 1px #2d6599;
     text-align: center;
     cursor: pointer;
     text-shadow: 0px 5px 5px #000000;
+    border-radius: 0 10px 10px 0;
     font-family: MonotypeCorsiva;
     color: #ccd5e2;
-    font-size: 40px;
+    white-space: nowrap;
+    font-size: 2.5vmax;
     font-weight: 900;
+    padding: 10px 30px 10px;
+    transition: width 0.5s;
     &:hover {
+      width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '40' : '100')}%;
       color: #d7df71;
     }
-    @media (max-width: 650px) {
-      height: 40px;
-      font-size: 25px;
-    }
-  }
-  & > div.bottom-element {
-    position: relative;
-    border-top: 1px solid #0b0520;
   }
 
   & > div.content-element {

@@ -12,15 +12,12 @@ export default function TimeLineItem(props: Props) {
     setIsPassed(props.passed);
   }, [props.passed]);
 
-  return (
-    <Item passed={isPassed}>
-      <p>{props.text}</p>
-    </Item>
-  );
+  return <Item passed={isPassed} dangerouslySetInnerHTML={{ __html: props.text }}></Item>;
 }
 
-const circleColor = '#d7df71';
-const bgColor = '#03396d';
+const circleColor = '#03396d';
+const bgColor = '#cac3c3';
+const fontColor = '#000c17';
 
 const AnimMovingCircle = keyframes`
     1% {opacity:1;top:0;}
@@ -41,20 +38,15 @@ type ItemProps = { passed: boolean };
 const Item = styled.div`
   position: relative;
   background-color: inherit;
-  margin-left: ${(props: ItemProps) => (props.passed ? '0px' : '3px')};
-  border-left: ${(props: ItemProps) => (props.passed ? '3px solid white' : 'none')};
-  @media (max-width: 450px) {
-    border-left: ${(props: ItemProps) => (props.passed ? '2px solid white' : 'none')};
-  }
+  margin-left: 5px;
 
   & p {
     font-size: 20px;
-    color: white;
+    color: ${fontColor};
     text-align: justify;
     vertical-align: text-top;
     margin: 0;
-    padding-left: 20px;
-    padding-bottom: 20px;
+    padding: 0px 30px 20px;
     @media (max-width: 450px) {
       font-size: 10px;
       padding-left: 12px;
@@ -77,7 +69,7 @@ const Item = styled.div`
   }
   &::before {
     top: 0;
-    border: 3px solid white;
+    border: 3px solid ${fontColor};
     background-color: ${bgColor};
     /*                •current                  •past                     */
     animation-name: ${AnimStaticCircleAppear}, ${AnimStaticCircleDisappear};

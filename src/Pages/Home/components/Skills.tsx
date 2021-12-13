@@ -27,8 +27,8 @@ export default function Skills() {
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#660000'
               bgColor='white'
-              dbgColor='#03396d'
-              textColor='white'
+              dbgColor={bgcolor}
+              textColor={textColor}
               strokeColor='black'
               dThickness={10}
               sThickness={30}
@@ -52,8 +52,8 @@ export default function Skills() {
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#005512'
               bgColor='white'
-              dbgColor='#03396d'
-              textColor='white'
+              dbgColor={bgcolor}
+              textColor={textColor}
               strokeColor='black'
               dThickness={10}
               sThickness={30}
@@ -77,8 +77,8 @@ export default function Skills() {
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#b3b000'
               bgColor='white'
-              dbgColor='#03396d'
-              textColor='white'
+              dbgColor={bgcolor}
+              textColor={textColor}
               strokeColor='black'
               dThickness={10}
               sThickness={30}
@@ -103,10 +103,12 @@ export default function Skills() {
     </Container>
   );
 }
+const bgcolor = '#c4cfe0';
+const textColor = '#000c17';
 
 const Container = styled.div`
   margin: 0 auto;
-  background: #03396d;
+  background: ${bgcolor};
   width: 100%;
   height: fit-content;
   display: flex;
@@ -114,7 +116,7 @@ const Container = styled.div`
   padding: 20px;
 
   & h1.group-title {
-    color: white;
+    color: ${textColor};
     text-decoration: underline;
     @media (max-width: 450px) {
       font-size: 5vw;
