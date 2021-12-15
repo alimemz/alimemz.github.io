@@ -42,6 +42,7 @@ export default function ScoreGraph(props: Props) {
         </ul>
       }
       placement='top'
+      mouseEnterDelay={props.details ? 0.1 : 500}
       color='#181717f0'>
       <Container _props={props}>
         <div className='graphics'>

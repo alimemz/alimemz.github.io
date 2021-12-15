@@ -1,0 +1,4 @@
+{
+  "imdb": "<ul><li>Request data from database</li><li>Show a waiting graphic to user before data loads</li><li>Handle response and organize data in DOM</li><li>Interactively filter the data as user commands</li></ul>",
+  "contactme": "<ul><li>Design forms and handle them</li><li>Seek, find and use libraries when there is a need.(on this page a library called EmailJS is used to send the user's message to my inbox)</li></ul>"
+}

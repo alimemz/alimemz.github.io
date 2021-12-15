@@ -8,11 +8,11 @@ import {
 } from '@ant-design/icons';
 import { Button, Input, InputProps, Spin } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
-import styled, { keyframes, StyledComponent } from 'styled-components';
+import emailjs from 'emailjs-com';
+import { useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
 import Header from '../../Gerenal Components/Header';
 import email_pic from './database/email.png';
-import emailjs from 'emailjs-com';
-import { ReactNode, useRef, useState } from 'react';
 
 export default function ContactMe() {
   const [fullName, setFullName] = useState('');

@@ -1,11 +1,11 @@
-import Header from '../../Gerenal Components/Header';
-import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
+import styled from 'styled-components';
+import Header from '../../Gerenal Components/Header';
 import routes from '../../routes';
 import Biography from './components/Biography';
 import Collapsible from './components/Collapsible';
 import Skills from './components/Skills';
-import styled from 'styled-components';
 import dream_job from './database/dream_job.png';
 
 export default function Home() {

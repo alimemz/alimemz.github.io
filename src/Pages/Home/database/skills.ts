@@ -16,6 +16,7 @@ import logo_redux from './logos/logo_redux.png';
 import logo_rest from './logos/logo_rest.png';
 import logo_styledcomps from './logos/logo_styledcomps.png';
 import logo_typescript from './logos/logo_typescript.png';
+import logo_3js from './logos/logo_3js.png';
 
 export type Skill = {
   title: string;
@@ -32,7 +33,7 @@ skills = [
     icon: logo_html,
     score: 100,
     tag: 'core',
-    details: ['Simply everything'],
+    details: ['Simply all there is to know!'],
   },
   {
     title: 'CSS',
@@ -43,8 +44,8 @@ skills = [
       'Flexbox',
       'Gird',
       'RWD (responsive web design)',
-      'Media quires',
-      'Animation',
+      'Media queries',
+      'Animation and transition',
       'SCSS',
       '...etc.',
     ],
@@ -71,6 +72,7 @@ skills = [
     score: 100,
     tag: 'core',
     details: [
+      'SPAs',
       'Class components',
       'Function components',
       'Hooks (State,Effect,layoutEffect,Ref,Context,Memo,etc.)',
@@ -126,7 +128,7 @@ skills = [
     tag: 'core',
     details: [
       'Android Studio',
-      'Complex UI creation',
+      'Complex UI design',
       'Various layout managers',
       'UI population using array adapters',
       'ROOM and Database management',
@@ -144,6 +146,7 @@ skills = [
       'Passing props to styles',
       'Coupling with CSS',
       'Keyframes and animation',
+      'Media queries',
       '...etc.',
     ],
   },
@@ -157,7 +160,7 @@ skills = [
   {
     title: 'Axios',
     icon: logo_axios,
-    score: 100,
+    score: 90,
     tag: 'aux',
     details: [
       'Stablishing data communication with server and handling request/response',
@@ -181,8 +184,8 @@ skills = [
     score: 90,
     tag: 'aux',
     details: [
+      'ReactRouter V6',
       'URL management in UI',
-      'Familiarity with ReactRouter V6',
       'BrowserRouter,Routes switching,Navigation,etc.',
       'Params matching',
       '...etc.',
@@ -191,8 +194,9 @@ skills = [
   {
     title: 'Express.js',
     icon: logo_express,
-    score: 50,
+    score: 40,
     tag: 'aux',
+    details: ['Fundamental knowledge'],
   },
   {
     title: 'Restful APIs',
@@ -200,6 +204,13 @@ skills = [
     score: 100,
     tag: 'aux',
     details: ['Simply all there is to know! (HTTP Verbs,their differences, status codes,...)'],
+  },
+  {
+    title: '3js & \n React Three Fiber',
+    icon: logo_3js,
+    score: 20,
+    tag: 'aux',
+    details: ['Very basic knowledge to set up a scene, camera, geometry, etc.'],
   },
   {
     title: 'English Language',

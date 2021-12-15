@@ -12,16 +12,17 @@ import ContactMe from './Pages/ContactMe/ContactMe';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={'/'} element={<Home />} />
-        <Route path={routes['Home']} element={<Home />} />
-        <Route path={routes['IMDB']} element={<IMDB />} />
-        <Route path={routes['360° Tour Builder']} element={<TourBuilder />} />
-        <Route path={routes['Contact Me']} element={<ContactMe />} />
-      </Routes>
-    </BrowserRouter>
-    // <IMDB/>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path={'/'} element={<Home />} />
+          <Route path={routes['Home']} element={<Home />} />
+          <Route path={routes['IMDB']} element={<IMDB />} />
+          <Route path={routes['360° Tour Builder']} element={<TourBuilder />} />
+          <Route path={routes['Contact Me']} element={<ContactMe />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
