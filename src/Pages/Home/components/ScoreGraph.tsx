@@ -1,3 +1,4 @@
+import { Popover } from 'antd';
 import styled, { keyframes } from 'styled-components';
 
 type Props = {
@@ -28,39 +29,49 @@ type Props = {
   strokeColor: string;
   /**Duration that conic gradient fills the scored segments (ms) */
   loadTime: number;
-  onClick: (details: string[] | undefined) => void;
 };
 
 export default function ScoreGraph(props: Props) {
   return (
-    <Container _props={props} onClick={() => props.onClick(props.details)}>
-      <div className='graphics'>
-        {/* Sectors */}
-        <span className='outer-circle'></span>
+    <Popover
+      content={
+        <ul>
+          {props.details?.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      }
+      placement='top'
+      color='#181717f0'>
+      <Container _props={props}>
+        <div className='graphics'>
+          {/* Sectors */}
+          <span className='outer-circle'></span>
 
-        {/* Sector Dividers */}
-        {(() => {
-          let dividers = [];
-          for (let i = 0; i < props.segments; i++) {
-            dividers[i] = (
-              <span
-                className='divider'
-                key={`divider-${i}`}
-                style={{ transform: `rotate(${180 + i * (360 / props.segments)}deg)` }}></span>
-            );
-          }
-          return dividers;
-        })()}
+          {/* Sector Dividers */}
+          {(() => {
+            let dividers = [];
+            for (let i = 0; i < props.segments; i++) {
+              dividers[i] = (
+                <span
+                  className='divider'
+                  key={`divider-${i}`}
+                  style={{ transform: `rotate(${180 + i * (360 / props.segments)}deg)` }}></span>
+              );
+            }
+            return dividers;
+          })()}
 
-        {/* Inner circle */}
-        <span className='inner-circle'>
-          <img src={props.image} alt={props.text} />
-        </span>
-      </div>
+          {/* Inner circle */}
+          <span className='inner-circle'>
+            <img src={props.image} alt={props.text} />
+          </span>
+        </div>
 
-      {/* Title */}
-      <h2>{props.text}</h2>
-    </Container>
+        {/* Title */}
+        <h2>{props.text}</h2>
+      </Container>
+    </Popover>
   );
 }
 

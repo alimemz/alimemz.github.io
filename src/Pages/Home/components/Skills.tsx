@@ -1,12 +1,8 @@
-import { Modal } from 'antd';
-import { useState } from 'react';
 import styled from 'styled-components';
 import ScoreGraph from '../components/ScoreGraph';
 import skills from '../database/skills';
 
 export default function Skills() {
-  const [details, setDetails] = useState<string[] | undefined>(undefined);
-
   const segments = 8;
   const adjustScore = (score: number) => Math.round(score * 0.01 * segments);
 
@@ -23,7 +19,6 @@ export default function Skills() {
               score={adjustScore(item.score)}
               image={item.icon}
               details={item.details}
-              onClick={(detail) => setDetails(detail)}
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#660000'
               bgColor='white'
@@ -48,7 +43,6 @@ export default function Skills() {
               score={adjustScore(item.score)}
               image={item.icon}
               details={item.details}
-              onClick={(detail) => setDetails(detail)}
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#005512'
               bgColor='white'
@@ -73,7 +67,6 @@ export default function Skills() {
               score={adjustScore(item.score)}
               image={item.icon}
               details={item.details}
-              onClick={(detail) => setDetails(detail)}
               size={window.innerWidth > 450 ? 150 : 100}
               sColor='#b3b000'
               bgColor='white'
@@ -87,19 +80,6 @@ export default function Skills() {
             />
           ))}
       </div>
-
-      {/* Details */}
-      <Modal
-        visible={details !== undefined}
-        onCancel={() => setDetails(undefined)}
-        cancelButtonProps={{ style: { display: 'none' } }}
-        okButtonProps={{ style: { display: 'none' } }}>
-        <ul>
-          {details?.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </Modal>
     </Container>
   );
 }

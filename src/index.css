@@ -23,3 +23,14 @@ code {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.ant-popover-inner-content ul {
+  max-width: max-content;
+  color: white;
+  font-size: 15px;
+  list-style-type: '\2714';
+}
+
+* {
+  scroll-behavior: smooth;
+}
