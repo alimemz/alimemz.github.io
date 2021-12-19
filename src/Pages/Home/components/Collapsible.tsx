@@ -30,7 +30,7 @@ const Container = styled.div`
 
   & > div.header-element {
     position: relative;
-    left: -5px;
+    left: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '-2px' : '0')};
     width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '30%' : '100vw')};
     min-width: fit-content;
     background-color: #001529;
