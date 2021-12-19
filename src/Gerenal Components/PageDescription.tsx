@@ -33,6 +33,10 @@ const ModalC = styled(Modal)`
   max-width: max-content;
   min-width: 370;
   padding-bottom: 0;
+  @media (max-width: 500px) {
+    max-width: 95vw;
+  }
+
   & .ant-modal-header {
     background-color: #03396d;
     border: none;

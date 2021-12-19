@@ -31,20 +31,20 @@ const Container = styled.div`
   & > div.header-element {
     position: relative;
     left: -5px;
-    width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '30' : '100')}%;
+    width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '30%' : '100vw')};
     min-width: fit-content;
     background-color: #001529;
     text-align: center;
     cursor: pointer;
     text-shadow: 0px 5px 5px #000000;
-    border-radius: 0 10px 10px 0;
+    border-radius: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '0 10px 10px 0' : '0px')};
     font-family: MonotypeCorsiva;
     color: #ccd5e2;
     white-space: nowrap;
     font-size: 2.5vmax;
     font-weight: 900;
     padding: 10px 30px 10px;
-    transition: width 0.5s;
+    transition: width 0.5s, border-radius 0.5s;
     &:hover {
       width: ${(props: { isCollapsed: boolean }) => (props.isCollapsed ? '40' : '100')}%;
       color: #d7df71;

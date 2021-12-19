@@ -43,7 +43,8 @@ export default function SideMenu(props: Props) {
     <Container
       collapsed={collapsed}
       onMouseEnter={() => setCollapsed(false)}
-      onMouseLeave={() => setCollapsed(true)}>
+      onMouseLeave={() => setCollapsed(true)}
+      onClick={() => setCollapsed(false)}>
       <MyMenu mode='inline' theme='dark' inlineCollapsed={collapsed}>
         {/* Genre Filtering */}
         <Menu.SubMenu key='genre' icon={<VideoCameraOutlined />} title='Filter by genre'>

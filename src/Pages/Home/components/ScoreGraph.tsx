@@ -37,7 +37,7 @@ export default function ScoreGraph(props: Props) {
       content={
         <ul>
           {props.details?.map((item) => (
-            <li>{item}</li>
+            <li key={item}>{item}</li>
           ))}
         </ul>
       }

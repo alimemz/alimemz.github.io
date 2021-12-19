@@ -104,7 +104,7 @@ export default function ContactMe() {
           <Button
             shape='circle'
             size='middle'
-            icon={rtl ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+            icon={rtl ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}
             title={rtl ? 'Left to Right' : 'Right to Left'}
             onClick={(_) => setRtl(!rtl)}
           />

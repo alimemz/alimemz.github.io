@@ -22,18 +22,25 @@ export default function Home() {
         <Intro>
           <div className='texts'>
             <p id='motto'>
-              “A good job, occupation or career for a person, is the one that makes him/her impatient during
-              the last hours of weekend, such that he/she cannot wait to get back to it.”
+              “An ideal job, occupation or career for a person, is the one that makes him/her miss it during
+              weekends or holidays.”
             </p>
             <p>
-              This has been my motto, aim and dream all through my life. I believe that there is such a
-              magical field of occupation for everyone, however, pinpointing it is a matter of challenge
-              sometimes spanning for decades of life or even get dropped for good. I, not being an exception,
-              have always been seeking such an occupation...and finally I found it rightfully in "Programming"
-              and "Software Development".
+              This short and seemingly simple sentence has been my motto, aim and dream all through my life.
+              It may seem obvious to some, but try to remember the mood of people around you in the last hours
+              of weekends... Aren't most of the them somehow mourning because of getting back to work?!
             </p>
             <p>
-              {' '}
+              I believe that there is such an ideal (or better said: magical) field of occupation for
+              everyone, however, pinpointing it is a matter of challenge sometimes spanning for decades of
+              life or even in most cases, get dropped for good totally.
+            </p>
+            <p>
+              I, not being an exception, have always been seeking such an occupation, the short story of it
+              you can find in the Short Biography section below...But finally I managed to pinpoint it
+              rightfully: "Programming" and "Software Development".
+            </p>
+            <p>
               This website is created merely to present my development skills to whom it may concern. Also, I
               intend to maintain, update or add something to it, anytime I learn something new.
             </p>

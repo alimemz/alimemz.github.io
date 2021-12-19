@@ -3,6 +3,8 @@ import styled from 'styled-components/macro';
 import routes from '../routes';
 import { images } from '../media';
 import PageDesciption from './PageDescription';
+import { Button } from 'antd';
+import { GithubOutlined } from '@ant-design/icons';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -19,6 +21,14 @@ export default function Header() {
           </div>
           <h2>Skill Presentation Website</h2>
         </Title>
+
+        <Button
+          id='repo-github'
+          icon={<GithubOutlined style={{ fontSize: 20 }} />}
+          href='https://github.com/ali-m-92/SkillPresentation'
+          target='_blank'>
+          Source code
+        </Button>
 
         <Nav>
           {Object.entries(routes).map((item) => {
@@ -51,6 +61,16 @@ const Parent = styled.div`
   background-color: #000c17;
   @media (max-width: 970px) {
     flex-direction: column;
+  }
+  & a#repo-github {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    & > span:last-child {
+      @media (max-width: 500px) {
+        display: none;
+      }
+    }
   }
 `;
 
