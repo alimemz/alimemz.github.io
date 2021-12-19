@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router';
 import styled from 'styled-components/macro';
 import routes from '../routes';
-import myPhoto from './database/myPhoto.png';
+import { images } from '../media';
 import PageDesciption from './PageDescription';
 
 export default function Header() {
@@ -14,7 +14,7 @@ export default function Header() {
       <Parent>
         <Title>
           <div>
-            <img src={myPhoto} alt='author' />
+            <img src={images.header_title} alt='author' />
             <h1>Ali Memarzadeh</h1>
           </div>
           <h2>Skill Presentation Website</h2>

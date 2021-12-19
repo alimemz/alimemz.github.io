@@ -12,7 +12,7 @@ import emailjs from 'emailjs-com';
 import { useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Header from '../../Gerenal Components/Header';
-import email_pic from './database/email.png';
+import { images } from '../../media';
 
 export default function ContactMe() {
   const [fullName, setFullName] = useState('');
@@ -68,7 +68,7 @@ export default function ContactMe() {
     <>
       <Header />
       <Container key={`c-${key}`} ref={container}>
-        <img className='email-pic' src={email_pic} alt='email' />
+        <img className='email-pic' src={images.letter} alt='email' />
         <InputC
           value={fullName}
           prefix={<UserOutlined />}

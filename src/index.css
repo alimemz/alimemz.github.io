@@ -12,12 +12,12 @@ code {
 
 @font-face {
   font-family: Base9;
-  src: url(./fonts/Base9SCSmallCaps.otf);
+  src: url(https://res.cloudinary.com/deqy8afqv/raw/upload/v1639918752/Skill%20Presentation/Base9SCSmallCaps.4012bd8e0fc1466c492b_zlfzze.otf);
 }
 
 @font-face {
   font-family: MonotypeCorsiva;
-  src: url(./fonts/MTCORSVA.TTF);
+  src: url(https://res.cloudinary.com/deqy8afqv/raw/upload/v1639918754/Skill%20Presentation/MTCORSVA.f11c44269babbad8d69b_hvebuu.TTF);
 }
 
 body::-webkit-scrollbar {

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import TimeLineItem from './TimeLineItem';
 import { biography as data } from '../database/biography';
-import myphoto from '../database/myphoto.jpg';
+import { images } from '../../../media';
 
 export default function Biography() {
   const [level, setLevel] = useState(0);
@@ -34,7 +34,7 @@ export default function Biography() {
           Continue reading...
         </p>
       </div>
-      <img src={myphoto} ref={image} alt='ali memarzadeh' />
+      <img src={images.bio_photo} ref={image} alt='ali memarzadeh' />
     </Container>
   );
 }

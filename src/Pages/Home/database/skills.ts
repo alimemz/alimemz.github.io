@@ -1,22 +1,4 @@
-import logo_android from './logos/logo_androidjava.png';
-import logo_antd from './logos/logo_antd.png';
-import logo_axios from './logos/logo_axios.png';
-import logo_css from './logos/logo_css.png';
-import logo_english from './logos/logo_english.png';
-import logo_excel from './logos/logo_excel.png';
-import logo_express from './logos/logo_expressjs.png';
-import logo_github from './logos/logo_github.png';
-import logo_html from './logos/logo_html.png';
-import logo_js from './logos/logo_js.png';
-import logo_node from './logos/logo_nodejs.png';
-import logo_photoshop from './logos/logo_photoshop.png';
-import logo_react from './logos/logo_react.png';
-import logo_reactrouter from './logos/logo_reactrouter.png';
-import logo_redux from './logos/logo_redux.png';
-import logo_rest from './logos/logo_rest.png';
-import logo_styledcomps from './logos/logo_styledcomps.png';
-import logo_typescript from './logos/logo_typescript.png';
-import logo_3js from './logos/logo_3js.png';
+import { images } from '../../../media';
 
 export type Skill = {
   title: string;
@@ -30,14 +12,14 @@ var skills: Skill[];
 skills = [
   {
     title: 'HTML',
-    icon: logo_html,
+    icon: images.logo_html,
     score: 100,
     tag: 'core',
     details: ['Simply all there is to know!'],
   },
   {
     title: 'CSS',
-    icon: logo_css,
+    icon: images.logo_css,
     score: 100,
     tag: 'core',
     details: [
@@ -52,7 +34,7 @@ skills = [
   },
   {
     title: 'Javascript',
-    icon: logo_js,
+    icon: images.logo_js,
     score: 100,
     tag: 'core',
     details: [
@@ -68,7 +50,7 @@ skills = [
   },
   {
     title: 'React',
-    icon: logo_react,
+    icon: images.logo_react,
     score: 100,
     tag: 'core',
     details: [
@@ -83,7 +65,7 @@ skills = [
   },
   {
     title: 'TypeScript',
-    icon: logo_typescript,
+    icon: images.logo_typescript,
     score: 100,
     tag: 'core',
     details: [
@@ -99,7 +81,7 @@ skills = [
   },
   {
     title: 'Git & Github',
-    icon: logo_github,
+    icon: images.logo_git,
     score: 90,
     tag: 'core',
     details: [
@@ -116,14 +98,14 @@ skills = [
   },
   {
     title: 'Node.js',
-    icon: logo_node,
+    icon: images.logo_nodejs,
     score: 50,
     tag: 'core',
     details: ['Basic modules and their usage such as HTTP, File, etc.', 'Server creation'],
   },
   {
     title: 'Android by Java',
-    icon: logo_android,
+    icon: images.logo_android,
     score: 80,
     tag: 'core',
     details: [
@@ -138,7 +120,7 @@ skills = [
   },
   {
     title: 'Styled Components',
-    icon: logo_styledcomps,
+    icon: images.logo_styledcomps,
     score: 100,
     tag: 'aux',
     details: [
@@ -152,14 +134,14 @@ skills = [
   },
   {
     title: 'Redux',
-    icon: logo_redux,
+    icon: images.logo_redux,
     score: 60,
     tag: 'aux',
     details: ['Store', 'Reducer', 'Dispatch', '...etc. (fundamental knowledge to manage global states)'],
   },
   {
     title: 'Axios',
-    icon: logo_axios,
+    icon: images.logo_axios,
     score: 90,
     tag: 'aux',
     details: [
@@ -173,14 +155,14 @@ skills = [
   },
   {
     title: 'Ant Design',
-    icon: logo_antd,
+    icon: images.logo_antd,
     score: 100,
     tag: 'aux',
     details: ['Using all the power of antD prepared components'],
   },
   {
     title: 'React Router',
-    icon: logo_reactrouter,
+    icon: images.logo_reactrouter,
     score: 90,
     tag: 'aux',
     details: [
@@ -193,40 +175,40 @@ skills = [
   },
   {
     title: 'Express.js',
-    icon: logo_express,
+    icon: images.logo_expressjs,
     score: 40,
     tag: 'aux',
     details: ['Fundamental knowledge'],
   },
   {
     title: 'Restful APIs',
-    icon: logo_rest,
+    icon: images.logo_rest,
     score: 100,
     tag: 'aux',
     details: ['Simply all there is to know! (HTTP Verbs,their differences, status codes,...)'],
   },
   {
     title: '3js & \n React Three Fiber',
-    icon: logo_3js,
+    icon: images.logo_3js,
     score: 20,
     tag: 'aux',
     details: ['Very basic knowledge to set up a scene, camera, geometry, etc.'],
   },
   {
     title: 'English Language',
-    icon: logo_english,
+    icon: images.logo_englishlang,
     score: 100,
     tag: 'misc',
   },
   {
     title: 'Microsoft Excel',
-    icon: logo_excel,
+    icon: images.logo_excel,
     score: 100,
     tag: 'misc',
   },
   {
     title: 'Adobe Photoshop',
-    icon: logo_photoshop,
+    icon: images.logo_photoshop,
     score: 100,
     tag: 'misc',
   },

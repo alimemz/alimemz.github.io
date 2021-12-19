@@ -6,7 +6,7 @@ import routes from '../../routes';
 import Biography from './components/Biography';
 import Collapsible from './components/Collapsible';
 import Skills from './components/Skills';
-import dream_job from './database/dream_job.png';
+import { images } from '../../media';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export default function Home() {
               skills.
             </p>
           </div>
-          <img src={dream_job} alt='dream_job' />
+          <img src={images.dream_job} alt='dream_job' />
         </Intro>
         <Collapsible content={<Skills />} title='Skills Self Assessment' initialState={true}></Collapsible>
 

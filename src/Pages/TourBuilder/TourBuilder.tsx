@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
-import under_development from '../../Gerenal Components/database/under_development.png';
 import Header from '../../Gerenal Components/Header';
+import { images } from '../../media';
 
 export default function TourBuilder() {
   console.log('im here');
@@ -8,7 +8,7 @@ export default function TourBuilder() {
     <>
       <Header />
       <Container>
-        <img src={under_development} alt='under development' />
+        <img src={images.under_development} alt='under development' />
       </Container>
     </>
   );
