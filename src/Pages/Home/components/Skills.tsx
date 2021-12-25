@@ -25,7 +25,7 @@ export default function Skills() {
               dbgColor={bgcolor}
               textColor={textColor}
               strokeColor='black'
-              dThickness={10}
+              dThickness={8}
               sThickness={30}
               loadTime={1000}
               segments={segments}
@@ -49,7 +49,7 @@ export default function Skills() {
               dbgColor={bgcolor}
               textColor={textColor}
               strokeColor='black'
-              dThickness={10}
+              dThickness={8}
               sThickness={30}
               loadTime={1000}
               segments={segments}
@@ -73,7 +73,7 @@ export default function Skills() {
               dbgColor={bgcolor}
               textColor={textColor}
               strokeColor='black'
-              dThickness={10}
+              dThickness={8}
               sThickness={30}
               loadTime={1000}
               segments={segments}
